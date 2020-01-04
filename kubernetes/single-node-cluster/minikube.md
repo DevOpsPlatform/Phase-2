@@ -5,7 +5,7 @@ https://github.com/aws-samples/aws-workshop-for-kubernetes/blob/master/03-path-a
 
 ### Install docker.
 
-Launahc an EC2 ubuntu instance. And connect to it, then install docker.
+Launahc an EC2 ubuntu instance(t2.medium). And connect to it, then install docker.
 
     sudo -i
 

@@ -65,6 +65,20 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
     
     kubectl describe deployment/nginx-deployment
 
+* Scaling a Deployment:
+
+    kubectl scale deployment [deploymentName] --replicas=number
+    ex: kubectl scale deployment devopsweb --replicas=10
+
+    kubectl get deployment
+
+    kubectl describe deployment devopsweb
+    
+    kubectl autoscale deployment [deploymentName] --min=10 --max=15 --cpu-percent=60
+    ex: kubectl autoscale deployment devopsweb --min=10 --max=15 --cpu-percent=60
+
+    kubectl get rs
+
 * delete pods/nodes/deployments/services
 
   kubectl delete [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs] [name] 

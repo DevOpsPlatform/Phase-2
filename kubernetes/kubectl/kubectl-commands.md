@@ -33,9 +33,11 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
   
   kubectl get all >>> list all the deployments/rs/pods/svc
 
-* list the pods/nodes/deployments/services by name
+* list the pods/nodes/deployments/services/namespaces by name
 
-  kubectl get [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs] [name]
+  kubectl get [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs][namespaces/ns] [name]
+  
+  kubectl api-resources >> run this command what all resources we can get
 
 * kubectl get pod [pod-1] [pod-2]
 

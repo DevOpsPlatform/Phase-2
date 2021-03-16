@@ -146,12 +146,15 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
      destination: pod-name:container-path
      
      ex: kubectl cp index.html [nginx-pod-name]:[container-nginx-path]
+     
+* kubectl set resources
 
 * kubectl rollout
 
     kubectl rollout status [deployment-name]
     kubectl rollout pause [deployment-name]
     kubectl rollout history [deployment-name]
+    kubectl rollout resume [deployment-name]
 
 All commands `kubectl --help`
 

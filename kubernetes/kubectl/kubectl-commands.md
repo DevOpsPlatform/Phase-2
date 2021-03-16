@@ -30,6 +30,8 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 * list the pods/nodes/deployments/services/[replicasets/rs]
 
   kubectl get [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs]
+  
+  kubectl get all >>> list all the deployments/rs/pods/svc
 
 * list the pods/nodes/deployments/services by name
 
@@ -41,9 +43,17 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 * kubectl get pod [pod-name] -o=[yaml/json/name/wide]
 
+* To see the labels automatically generated for each pod, run the command "kubectl get pods --show-labels".
+
 * description(information) of the pods/nodes/deployments/services
 
   kubectl describe [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs] [name]
+  
+  describe all the deployments: kubectl describe deploy
+  
+  decribe all the nodes: kubectl describe nodes
+  
+  describe all the pods: kubectl describe pods
 
 * delete pods/nodes/deployments/services
 
@@ -68,6 +78,13 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
     kubectl logs -p -c ruby web-1 
     
     kubectl logs --since=1h nginx # Show all logs from pod nginx written in the last hour
+    
+* Updating a Deployment
+
+    Suppose that you now want to update the nginx Pods to use the nginx:1.9.1 image instead of the nginx:1.7.9 image.
+
+    Command: kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1
+
 
 * kubectl apply:
 

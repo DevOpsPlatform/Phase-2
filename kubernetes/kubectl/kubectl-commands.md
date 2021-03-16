@@ -54,6 +54,14 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
   decribe all the nodes: kubectl describe nodes
   
   describe all the pods: kubectl describe pods
+  
+* edit the deployments:
+
+    kubectl edit deployment/nginx-deployment >> Once you run this command, deployment file will be opened, you can edit the image version here and save the file.
+    
+    kubectl rollout status deployment/nginx-deployment >> see the rollout status
+    
+    kubectl describe deployment/nginx-deployment
 
 * delete pods/nodes/deployments/services
 

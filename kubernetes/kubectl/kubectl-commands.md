@@ -35,7 +35,7 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 * list the pods/nodes/deployments/services/namespaces by name
 
-  kubectl get [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs][namespaces/ns] [name]
+  kubectl get [pods/pod/po]/[nodes/node/no]/[deploy/deployments]/[services/service/svc]/[replicasets/rs][namespaces/ns][hpa] [name]
   
   kubectl api-resources >> run this command what all resources we can get
 

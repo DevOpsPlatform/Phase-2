@@ -55,3 +55,24 @@ exit from the container and list all the contains
     eb7d00f4ac2c        ubuntu              "bash"              2 minutes ago       Exited (0) 5 seconds ago                       funny_neumann
     e9534adbcd21        hello-world         "/hello"            6 minutes ago       Exited (0) 6 minutes ago                       tender_heisenberg
     root@docker:~#
+
+```
+docker pull alpine
+```
+
+    root@docker:~# docker pull alpine
+    Using default tag: latest
+    latest: Pulling from library/alpine
+    ba3557a56b15: Pull complete
+    Digest: sha256:a75afd8b57e7f34e4dad8d65e2c7ba2e1975c795ce1ee22fa34f8cf46f96a3be
+    Status: Downloaded newer image for alpine:latest
+    docker.io/library/alpine:latest
+    root@docker:~# docker images
+    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+    hello-world         latest              d1165f221234        12 days ago         13.3kB
+    ubuntu              latest              4dd97cefde62        13 days ago         72.9MB
+    alpine              latest              28f6e2705743        4 weeks ago         5.61MB
+    
+The `pull` command fetches the alpine **image** from the **Docker registry** and saves it in our system. You can use the `docker images` command to see a list of all images on your system. 
+
+

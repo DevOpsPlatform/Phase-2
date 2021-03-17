@@ -31,3 +31,27 @@ Once you are done installing Docker, test your Docker installation by running th
 
     For more examples and ideas, visit:
      https://docs.docker.com/get-started/
+
+try this: docker run -it ubuntu bash
+
+    This means, docker pull the image ubuntu from docker hub and create a container by runing the image, and then interact with container by bash mode
+
+    root@docker:~# docker run -it ubuntu bash
+    Unable to find image 'ubuntu:latest' locally
+    latest: Pulling from library/ubuntu
+    5d3b2c2d21bb: Pull complete
+    3fc2062ea667: Pull complete
+    75adf526d75b: Pull complete
+    Digest: sha256:b4f9e18267eb98998f6130342baacaeb9553f136142d40959a1b46d6401f0f2b
+    Status: Downloaded newer image for ubuntu:latest
+    root@eb7d00f4ac2c:/#
+    
+exit from the container and list all the contains
+
+    root@eb7d00f4ac2c:/# exit
+    exit
+    root@docker:~# docker ps -a
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
+    eb7d00f4ac2c        ubuntu              "bash"              2 minutes ago       Exited (0) 5 seconds ago                       funny_neumann
+    e9534adbcd21        hello-world         "/hello"            6 minutes ago       Exited (0) 6 minutes ago                       tender_heisenberg
+    root@docker:~#

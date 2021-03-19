@@ -22,8 +22,9 @@ Docker interview questions:
 
 10. CMD vs ENTRYPOINT
 
-11. can we use multiple FROM commands in same dockerfile, see [practice/multi-stage.md]
-    see - https://docs.docker.com/develop/develop-images/multistage-build/
+11. can we use multiple FROM commands in same dockerfile, see [multi-stage-build](practice/multi-stage.md)
+
+    Ref: - https://docs.docker.com/develop/develop-images/multistage-build/
 
 12. ADD vs COPY
 

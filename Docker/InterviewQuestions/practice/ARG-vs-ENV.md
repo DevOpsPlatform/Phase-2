@@ -1,5 +1,6 @@
 https://vsupalov.com/docker-arg-vs-env/#:~:text=ENV%20is%20for%20future%20running,for%20your%20future%20environment%20variables.&text=ARG%20values%20are%20not%20available%20after%20the%20image%20is%20built.
 
+https://vsupalov.com/docker-arg-env-variable-guide/
 
 Dockerfile
 

@@ -3,7 +3,8 @@
     1. docker --help
     2. docker -v or docker --version or docker version
     3. docker images: To get the list of all the local images.
-      docker rmi -f <image-name/id> : to remove the image.
+       docker rmi -f <image-name/id> : to remove the image.
+       docker images -a | sort 
     4. docker ps: To list the active containers.
       docker ps -a: To list both active & inactive containers.
       docker ps -a -s: To list both active & inactive containers along with the size of the container. -s gives you the container file size.

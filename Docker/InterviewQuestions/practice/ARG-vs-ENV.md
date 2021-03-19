@@ -19,12 +19,19 @@ docker run -it agrvsenv:1.0 /bin/bash
 
 Output:
 
-![image](https://user-images.githubusercontent.com/24622526/111825327-a317c900-88e7-11eb-92da-6a8b89a692a1.png)
+![image](https://user-images.githubusercontent.com/24622526/111826727-57feb580-88e9-11eb-9f02-b1d8c07b5445.png)
 
+
+Same Dockerfile as above 
 
 ```
 docker build -t agrvsenv:2.0 .   --build-arg VAR_A=10
 ```
+
+Output:
+
+![image](https://user-images.githubusercontent.com/24622526/111826478-05bd9480-88e9-11eb-992d-89c57b5d63ed.png)
+
 
 Dockerfile2
 

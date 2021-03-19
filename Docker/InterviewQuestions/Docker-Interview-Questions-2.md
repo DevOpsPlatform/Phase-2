@@ -22,9 +22,7 @@ Docker interview questions:
 
 10. CMD vs ENTRYPOINT
 
-11. can we use multiple FROM commands in same dockerfile, see [multi-stage-build](practice/multi-stage.md)
-
-    Ref: - https://docs.docker.com/develop/develop-images/multistage-build/
+11. can we use multiple FROM commands in same dockerfile, see [multi stage build](practice/multi-stage.md)
 
 12. ADD vs COPY
 
@@ -34,4 +32,4 @@ Docker interview questions:
 
 15. how to pull the docker images to k8s cluster (using k8s secrets - need to add docker config file )
 
-16. difference between ARG and env in docker file
+16. difference between ARG and env in docker file, see [ARG vs ENV](practice/ARG-vs-ENV.md)

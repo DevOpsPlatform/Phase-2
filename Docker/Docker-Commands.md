@@ -14,6 +14,15 @@
        
        docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
        
+       List the full length image IDs: docker images --no-trunc
+       
+       List images by name and tag: 
+       docker images [REPOSITORY]
+       ex: docker images java
+       
+       docker images [REPOSITORY[:TAG]] 
+       ex: docker images java:8
+       
     4. docker ps: To list the active containers.
       docker ps -a: To list both active & inactive containers.
       docker ps -a -s: To list both active & inactive containers along with the size of the container. -s gives you the container file size.
@@ -24,6 +33,18 @@
       docker container rm <container-id>
       docker container run <container-id>
       docker container start <container-id>
+      
+      docker ps --filter "label=color"
+      docker ps --filter "name=nostalgic_stallman" : filter container with name of the container
+      docker ps -a --filter 'exited=0'
+      docker ps -a --filter 'exited=137'
+      docker ps --filter status=running
+      docker ps --filter status=paused
+      docker ps --filter volume=remote-volume --format "table {{.ID}}\t{{.Mounts}}"
+      docker ps -f since=6e63f6ff38b0
+      docker ps -f before=9c3527ed70ce
+      docker ps --format "{{.ID}}: {{.Command}}"
+      docker ps --format "table {{.ID}}\t{{.Labels}}"
 
     5. docker run <image-name>: to run the image & it creates the container.
       docker run -it --name venkat ubuntu : we can give a name to the running container.

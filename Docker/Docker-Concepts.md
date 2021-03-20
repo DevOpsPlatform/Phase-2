@@ -12,5 +12,5 @@
 12. docker dettach
 13. advantages of container
 14. drawbacks of container/docker
-15. Dockerfile declaratives (FROM, RUN, COPY, ADD, ARG, ENV, LABEL, ENTRYPOINT, CMD, EXPOSE, AS, WORKDIR, USER, VOLUME
+15. Dockerfile declaratives (FROM, RUN, COPY, ADD, ARG, ENV, LABEL, ENTRYPOINT, CMD, EXPOSE, AS, WORKDIR, USER, VOLUME, ONBUILD, MAINTAINER, SHELL, HEALTHCHECK, STOPSIGNAL)
 16. 

@@ -20,7 +20,9 @@ echo AnsibleServer > /etc/hostname
 
 #1. Run the below command from root user: sudo -i
 
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+For RHEL 7: rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+For RHEL 8: rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 
 #2. Install ansible: yum install -y ansible
 yum install -y ansible

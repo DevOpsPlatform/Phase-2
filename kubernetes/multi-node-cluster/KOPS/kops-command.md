@@ -3,7 +3,7 @@ Refer: https://github.com/kubernetes/kops/blob/master/docs/commands.md
 
 Ex: kops create cluster
 
-       kkops create cluster \
+       kops create cluster \
                   --node-count 3 \
                   --zones us-west-2a,us-west-2b,us-west-2c \
                   --master-zones us-west-2a,us-west-2b,us-west-2c \

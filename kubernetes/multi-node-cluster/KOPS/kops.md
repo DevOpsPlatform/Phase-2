@@ -34,10 +34,6 @@
 	
 	echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 	
-	sudo apt-get update
-	
-	sudo apt-get install -y kubectl
-	
 	apt-get update
 
 	apt-get install -y kubectl
@@ -49,6 +45,8 @@
 	sudo mv kops-linux-amd64 /usr/local/bin/kops
 	
 	kubectl version
+	
+	aws --version
 	
 	kops version
 
@@ -63,8 +61,8 @@ Step-4: Configure the AWS credentials: Run the command and enter the access key 
 
 #### Step-6: Create environment variables for bucket name & cluster name. You can update the below variables in vi ~/.profile Or vi ~/.bash_profile
 
-	export bucket_name=svn-kops-state-store
-	export KOPS_CLUSTER_NAME=venkat.k8s.local	
+	export bucket_name=v2devops-kops-state-store
+	export KOPS_CLUSTER_NAME=v2devops.k8s.local	
 	export KOPS_STATE_STORE=s3://${bucket_name}
 
    * run the command: source ~/.profile Or source ~/.bash_profile

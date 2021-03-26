@@ -205,12 +205,55 @@ so far, you ran all the commands on k8s-master to setup cluster, now run the joi
 on master:
 
 ```
-kubectl get nodes
+kubectl get nodes or kubectl get nodes -o wide
 ```
 
 ![image](https://user-images.githubusercontent.com/24622526/112567811-be9c3b80-8de1-11eb-8b17-dd1425c6e770.png)
 
 
 
+Step-10: Final step, Create the deployment and service
+
+```
+kubectl create deployment nginx --image=nginx
+
+kubectl get deploy
+
+kubectl get all or kubectl get all -A
+```
+
+
+vi svc.yml
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+```
+
+```
+kubectl apply -f svc.yml
+```
+
+```
+kubectl get svc
+```
+
+
+![image](https://user-images.githubusercontent.com/24622526/112568397-b1338100-8de2-11eb-8ef6-3187a357c902.png)
+
+
+Add the instance (master) to the newly created loadbalancer and wait for the status changed to "InService"
+
+![image](https://user-images.githubusercontent.com/24622526/112568336-982ad000-8de2-11eb-80e1-dc9740058126.png)
 
 

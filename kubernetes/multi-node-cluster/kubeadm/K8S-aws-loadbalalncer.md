@@ -257,3 +257,9 @@ Add the instance (master) to the newly created loadbalancer and wait for the sta
 ![image](https://user-images.githubusercontent.com/24622526/112568336-982ad000-8de2-11eb-80e1-dc9740058126.png)
 
 
+Once the status is updated to "InService", copy the load balancer DNS and hit in any brwoser.
+
+![image](https://user-images.githubusercontent.com/24622526/112568738-3c147b80-8de3-11eb-80e1-dc0001d7fc54.png)
+
+
+![image](https://user-images.githubusercontent.com/24622526/112568692-28691500-8de3-11eb-95a6-4366d2168dbc.png)

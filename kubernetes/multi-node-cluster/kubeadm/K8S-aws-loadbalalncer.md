@@ -6,6 +6,11 @@ Step-2: Create EC2 instances with IAM role created in step-1
 
 In this example, I am choosing t2.medium for master, t2.micro for nodes.
 
+![image](https://user-images.githubusercontent.com/24622526/112569344-4c792600-8de4-11eb-8981-5b0d01e6aaea.png)
+
+![image](https://user-images.githubusercontent.com/24622526/112569271-2eabc100-8de4-11eb-8ef5-c5c0c19307f4.png)
+
+
 Step-3: Connect to all EC2 instances and update hostname
 
 ![image](https://user-images.githubusercontent.com/24622526/112565650-b8a45b80-8ddd-11eb-8028-90fff1f820eb.png)

@@ -263,3 +263,9 @@ Once the status is updated to "InService", copy the load balancer DNS and hit in
 
 
 ![image](https://user-images.githubusercontent.com/24622526/112568692-28691500-8de3-11eb-95a6-4366d2168dbc.png)
+
+Remove the service and deployment loadbalancer also will be removed automatically from AWS.
+
+![image](https://user-images.githubusercontent.com/24622526/112569086-d4126500-8de3-11eb-9bc0-208aaa417ede.png)
+
+

@@ -138,6 +138,79 @@ controllerManager:
 ```
 
 
+Step-10: Cluster setup
+
+```
+kubeadm config images pull
+kubeadm init --config kubeadm.yml
+```
+
+if anything goes wrong, try: `kubeadm reset -f` and repeat this step-10.
+
+![image](https://user-images.githubusercontent.com/24622526/112567182-ae379100-8de0-11eb-8819-429fb2edb450.png)
+
+
+```
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+```
+
+![image](https://user-images.githubusercontent.com/24622526/112567295-e0e18980-8de0-11eb-96bd-6e26c218bbcd.png)
+
+Install k8s network
+
+```
+
+kubectl get nodes
+
+kubectl get pods --all-namespaces
+
+sysctl net.bridge.bridge-nf-call-iptables=1
+
+export kubever=$(kubectl version | base64 | tr -d '\n')
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+
+kubectl get nodes
+
+kubectl get pods --all-namespaces
+
+```
+
+![image](https://user-images.githubusercontent.com/24622526/112567504-39188b80-8de1-11eb-854c-bf04e4bd32be.png)
+
+
+```
+kubectl get pods --all-namespaces
+```
+
+
+Join the nodes into the cluster using kubeadm join command. Use this command to create and print the join command : kubeadm token create --print-join-command
+
+![image](https://user-images.githubusercontent.com/24622526/112567608-682efd00-8de1-11eb-95fb-7b8792fc2512.png)
+
+
+so far, you ran all the commands on k8s-master to setup cluster, now run the join command on k8s-worker to join the other servers as worker in the k8s cluster.
+
+![image](https://user-images.githubusercontent.com/24622526/112567696-97de0500-8de1-11eb-9b23-3b3cf747d0d0.png)
+
+on master:
+
+```
+kubectl get nodes
+```
+
+![image](https://user-images.githubusercontent.com/24622526/112567811-be9c3b80-8de1-11eb-8b17-dd1425c6e770.png)
+
+
 
 
 

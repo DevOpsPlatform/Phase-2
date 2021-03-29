@@ -288,7 +288,7 @@ client                     : ok=4    changed=2    unreachable=0    failed=0
 
 ======================================================================================================
 
-Scenario-5: Deploy the package the to tomcat using ansible playbook
+Scenario-5: Deploy the package to target tomcat server using ansible playbook
 
 - hosts: ClientServer
 

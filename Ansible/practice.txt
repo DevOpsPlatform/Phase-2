@@ -11,6 +11,8 @@ Step-2: Connect to first server and install ansible.
 
 		command-1: hostname AnsibleServer
 		comamnd-2: echo AnsibleServer > /etc/hostname
+		
+		To install Ansible: refer #1, #2 from https://github.com/DevOpsPlatform/Phase-2/blob/master/Ansible/Installation-example.txt
 
 Step-3: generate public key using the command - ssh-keygen -t rsa
 

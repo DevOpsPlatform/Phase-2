@@ -1,0 +1,170 @@
+Step-1: Create 4 instances (1 for Ansible, 3 for client machines)
+
+	1. RedHat for AnsibleServer
+	2. Ubuntu as Client-1-ubuntu
+	3. RedHat as Client-2-RedHat
+	4. AmazonEC2 as Client-3-AmazonEC2
+
+Step-2: Connect to first server and install ansible.
+
+		Update hostanme as AnsibleServer
+
+		command-1: hostname AnsibleServer
+		comamnd-2: echo AnsibleServer > /etc/hostname
+
+Step-3: generate public key using the command - ssh-keygen -t rsa
+
+Step-5: copy the public key from /root/.ssh/id_rsa.pub from the Ansible Server.
+
+Step-6: Connect to all client machines and add the public key to /root/.ssh/authorized_keys
+
+	also update hostanme as Client-1-<OS>
+
+		command-1: hostname Client-1-ubuntu
+		comamnd-2: echo Client-1-ubuntu > /etc/hostname
+
+		command-1: hostname Client-2-RedHat
+		comamnd-2: echo Client-2-RedHat > /etc/hostname
+
+		command-1: hostname Client-3-AmazonEC2
+		comamnd-2: echo Client-2-RedHat > /etc/hostname
+
+Step-7(optional): update /etc/hosts file as mentioned below
+
+	on AnsibleServer:
+
+		<public-ip-of-Client-1-ubuntu> Client-1-ubuntu
+		<public-ip-of-Client-2-RedHat> Client-2-RedHat
+		<public-ip-of-Client-3-AmazonEC2> Client-3-AmazonEC2
+
+	ex: 54.34.57.77 Client-1-ubuntu
+
+	on client machines:
+
+		<public-ip-of-AnsibleServer> AnsibleServer
+	
+	ex: 54.34.56.76 AnsibleServer
+
+Step-8: test the connections
+
+	on AnsibleServer:
+
+		ping <public-ip-of-AnsibleServer> (or) ping Client-1-ubuntu
+		ping <public-ip-of-Client-2-RedHat> (or) ping Client-2-RedHat
+		ping <public-ip-of-Client-3-AmazonEC2> (or) ping Client-3-AmazonEC2
+
+	on client machines:
+	
+		ping <public-ip-of-AnsibleServer> (or) ping AnsibleServer
+
+Step-9: Update /etc/ansible/hosts file with client server details (if step-7 executed, add the server name as below. Otehrwise, update with public IP address.)
+
+	[amazonweb]
+	Client-1-ubuntu
+	Client-2-RedHat
+	Client-3-AmazonEC2
+
+Step-10: test the connections using Ansbile
+
+	ansible Client-1-ubuntu -m ping
+	ansible Client-2-RedHat -m ping
+	ansible Client-3-AmazonEC2 -m ping
+
+	ansible Client-1-ubuntu -m ping
+
+		[root@AnsibleServer ~]# ansible Client-1-ubuntu -m ping
+		Client-1-ubuntu | SUCCESS => {
+			"ansible_facts": {
+				"discovered_interpreter_python": "/usr/bin/python3"
+			},
+			"changed": false,
+			"ping": "pong"
+		}
+		[root@AnsibleServer ~]#
+
+	ping by group:
+	
+	[root@AnsibleServer ~]# ansible amazonweb -m ping
+	[WARNING]: Platform linux on host Client-3-AmazonEC2 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter
+	could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+	Client-3-AmazonEC2 | SUCCESS => {
+		"ansible_facts": {
+			"discovered_interpreter_python": "/usr/bin/python"
+		},
+		"changed": false,
+		"ping": "pong"
+	}
+	Client-2-RedHat | SUCCESS => {
+		"ansible_facts": {
+			"discovered_interpreter_python": "/usr/libexec/platform-python"
+		},
+		"changed": false,
+		"ping": "pong"
+	}
+	Client-1-ubuntu | SUCCESS => {
+		"ansible_facts": {
+			"discovered_interpreter_python": "/usr/bin/python3"
+		},
+		"changed": false,
+		"ping": "pong"
+	}
+	[root@AnsibleServer ~]#
+
+
+	ansible all -m ping
+
+Step-11: create a folder "playbooks" and "cd playbooks".
+
+example-1: install 'tree' on target machine 'Client-1-ubuntu'
+
+vi ansi_playbook.yml
+
+- hosts: Client-1-ubuntu
+  tasks:
+    - name: installing tree package
+      apt: name=tree state=latest
+
+before run the play book, verify tree software on target machine 'Client-1-ubuntu' and apt-get update to get the updated packages on this AWS EC2 instance.
+
+[root@Client-2-RedHat ~]# tree
+-bash: tree: command not found
+[root@Client-2-RedHat ~]# apt-get update
+
+Run the playbook: ansible-playbook ansi_playbook.yml
+
+Output:
+[root@AnsibleServer playbooks]# ansible-playbook ansi_playbook.yml
+
+PLAY [Client-1-ubuntu] *****************************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************************
+ok: [Client-1-ubuntu]
+
+TASK [installing tree package] *********************************************************************************************************************************************
+changed: [Client-1-ubuntu]
+
+PLAY RECAP *****************************************************************************************************************************************************************
+Client-1-ubuntu            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@AnsibleServer playbooks]#
+
+
+after run the play book: now tree command is working on target host "Client-1-ubuntu"
+
+root@Client-1-ubuntu:~# tree
+.
+└── snap
+    ├── amazon-ssm-agent
+    │   ├── 3552
+    │   ├── common
+    │   └── current -> 3552
+    └── lxd
+        ├── 19188
+        ├── common
+        └── current -> 19188
+
+9 directories, 0 files
+root@Client-1-ubuntu:~#
+
+What we have done?: We have just installed required software 'tree' on the taregt host using Ansible. Simply, we have installed a software from targent machine from another machine(where Ansbile is running).
+

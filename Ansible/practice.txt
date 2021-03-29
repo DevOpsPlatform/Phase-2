@@ -170,3 +170,96 @@ root@Client-1-ubuntu:~#
 
 What we have done?: We have just installed required software 'tree' on the taregt host using Ansible. Simply, we have installed a software from targent machine from another machine(where Ansbile is running).
 
+example-2: copy the file from AnsibleServer to target client server.
+
+before:
+[root@Client-2-RedHat ~]# ll
+total 16
+-rw-------. 1 root root 6455 Oct 31 05:14 anaconda-ks.cfg
+-rw-------. 1 root root 6201 Oct 31 05:14 original-ks.cfg
+[root@Client-2-RedHat ~]# 
+
+
+run ansible ad-hoc command: 
+
+[root@AnsibleServer playbooks]# ansible Client-2-RedHat -m copy -a "src=ansi_playbook.yml dest=/root/dest2/"
+Client-2-RedHat | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": true,
+    "checksum": "0e39caeb53e35d8ec67d272e96dc6f0a6d15cf0a",
+    "dest": "/root/dest2/ansi_playbook.yml",
+    "gid": 0,
+    "group": "root",
+    "md5sum": "fa6ae20fb414b23875d23fd57edfcc5b",
+    "mode": "0644",
+    "owner": "root",
+    "secontext": "system_u:object_r:admin_home_t:s0",
+    "size": 104,
+    "src": "/root/.ansible/tmp/ansible-tmp-1617037565.1093462-13696-41297602420189/source",
+    "state": "file",
+    "uid": 0
+}
+[root@AnsibleServer playbooks]#
+
+
+after:
+
+[root@Client-2-RedHat ~]# ll dest2/
+total 4
+-rw-r--r--. 1 root root 104 Mar 29 17:06 ansi_playbook.yml
+[root@Client-2-RedHat ~]#
+
+example3: install apache web server on Client-3-AmazonEC2 using ansible playbook.
+
+before execute the playbook on target server Client-3-AmazonEC2:
+[root@Client-3-AmazonEC2 ~]# curl localhost
+curl: (7) Failed to connect to localhost port 80: Connection refused
+[root@Client-3-AmazonEC2 ~]# 
+
+Create  index.html on Ansible server and then install apache seerver, and copy to target server, then restart.
+
+[root@AnsibleServer playbooks]# echo "Hello, I am index.html create from AnsibleServer" > index.html
+[root@AnsibleServer playbooks]# vi example3.yml
+[root@AnsibleServer playbooks]# cat example3.yml
+- hosts: Client-3-AmazonEC2
+  tasks:
+    - name: install httpd
+      yum: name=httpd state=installed
+    - name: copy index.html
+      copy: src=index.html dest=/var/www/html/index.html
+    - name: start apache
+      service:
+       name: httpd
+       state: restarted
+[root@AnsibleServer playbooks]# ansible-playbook example3.yml
+
+PLAY [Client-3-AmazonEC2] **************************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************************
+[WARNING]: Platform linux on host Client-3-AmazonEC2 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter
+could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [Client-3-AmazonEC2]
+
+TASK [install httpd] *******************************************************************************************************************************************************
+changed: [Client-3-AmazonEC2]
+
+TASK [copy index.html] *****************************************************************************************************************************************************
+changed: [Client-3-AmazonEC2]
+
+TASK [start apache] ********************************************************************************************************************************************************
+changed: [Client-3-AmazonEC2]
+
+PLAY RECAP *****************************************************************************************************************************************************************
+Client-3-AmazonEC2         : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@AnsibleServer playbooks]#
+
+after execution of playbook:
+[root@Client-3-AmazonEC2 ~]# curl localhost
+Hello, I am index.html create from AnsibleServer
+[root@Client-3-AmazonEC2 ~]#
+
+
+

@@ -82,10 +82,11 @@ root@docker:~# docker run -it alpine /bin/sh
 / # ls
 bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbin   srv    sys    tmp    usr    var
 / # uname -a
-Linux c61b337a4412 5.4.0-1038-aws #40-Ubuntu SMP Fri Feb 5 23:50:40 UTC 2021 x86_64 Linux
+Linux c61b337a4412 5.4.0-1038-aws #40-Ubuntu SMP Fri Feb 5 23:50:40 UTC - WSL to run ELF64 Linux binaries on Windows. 2021 x86_64 Linux
 / # exit
 root@docker:~#
 ```
 
 Running the `run` command with the `-it` flags attaches us to an interactive tty in the container. Now you can run as many commands in the container as you want. Take some time to run your favorite commands.
 
+Windows Subsystem for Linux - WSL to run ELF64 Linux binaries on Windows.

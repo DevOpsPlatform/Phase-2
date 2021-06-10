@@ -29,6 +29,11 @@ Creating docker-compose: docker-compose.yml
         ports:
           - "8080:8080"
             
+    
+    docker-compose up -d
+    
+    docker ps
+            
     Launch the URL: http://publicIP:8082/
 
     Interatct with container: docker exec -it a726ec0223a7 bash

@@ -46,7 +46,7 @@ Creating docker-compose: docker-compose.yml
     
     See the mysql commands: https://gist.github.com/hofmannsven/9164408
     
-
+    docker-compose down
 
 
             

@@ -22,7 +22,7 @@ Creating docker-compose: docker-compose.yml
       web:
         image: nginx
         ports: 
-        - 8082:80
+         - 8082:80
       cicd:
         image: jenkins/jenkins:latest
         container_name: jenkins_ci

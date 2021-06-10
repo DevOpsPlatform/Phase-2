@@ -23,6 +23,11 @@ Creating docker-compose: docker-compose.yml
         image: nginx
         ports: 
         - 8082:80
+      cicd:
+        image: jenkins/jenkins:latest
+        container_name: jenkins_ci
+        ports:
+          - "8080:8080"
             
     Launch the URL: http://publicIP:8082/
 

@@ -52,7 +52,9 @@
     *  click on "Download.csv"
     *  A CSV file will be downloaded. 
     
-- ![#f03c15] DO NOT UPLOAD THIS CREDENTIALS CSV FILE TO ANY PUBLIC PLATFORM. OTHERWISE, YOUR AWS ACCOUNT WILL BE BLOCKED `#f03c15` 
+```diff
+- DO NOT UPLOAD THIS CREDENTIALS CSV FILE TO ANY PUBLIC PLATFORM. OTHERWISE, YOUR AWS ACCOUNT WILL BE BLOCKED
+```
      
 * Create access key & secret key for the IAM user.
     * Go to Users --> Security Credentials --> Create Access Key --> Copy the Access Key Id & Secret Access Key.

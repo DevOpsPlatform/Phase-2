@@ -41,7 +41,9 @@
     * Give the group name.
     * Choose "AdministratorAccess" from the list of policies. and then click on the button "Next: Review"
     * Finally click on "Create User" button.
-    
+    * Create access key & secret key for the IAM user.
+    * Go to Users --> Security Credentials --> Create Access Key --> Copy the Access Key Id & Secret Access Key.
+        
    Or
    
 `Method-2`:
@@ -61,9 +63,6 @@
 - DO NOT SHARE THIS CSV FILE (OR) DO NOT UPLOAD THIS CSV FILE TO ANY PUBLIC PLATFORM. OTHERWISE, YOUR AWS ACCOUNT WILL BE BLOCKED
 ```
      
-* Create access key & secret key for the IAM user.
-    * Go to Users --> Security Credentials --> Create Access Key --> Copy the Access Key Id & Secret Access Key.
-    
 * Configure AWS credentials in docker host.
 
     aws configure

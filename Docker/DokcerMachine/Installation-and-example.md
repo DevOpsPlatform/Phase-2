@@ -39,6 +39,21 @@
     * Choose "AdministratorAccess" from the list of policies. and then click on the button "Next: Review"
     * Finally click on "Create User" button.
     
+   Or
+   
+    *  Services --> Security, Identity & Compliance --> IAM --> Users --> Add User.
+    *  Enter user name and select "Programatic Access"
+    *  Next:Permissions
+    *  Under "Set Permissions" >> Choose "Attach Existing policies directory" >> choose "AmazonEC2FullAccess"
+    *  Next:Tags
+    *  (optional step) enter "Name" as key and value as "dockerswarm".
+    *  Next:Review
+    *  click on "Create User".
+    *  click on "Download.csv"
+    *  A CSV file will be downloaded. 
+    
+- ![#f03c15] DO NOT UPLOAD THIS CREDENTIALS CSV FILE TO ANY PUBLIC PLATFORM. OTHERWISE, YOUR AWS ACCOUNT WILL BE BLOCKED `#f03c15` 
+     
 * Create access key & secret key for the IAM user.
     * Go to Users --> Security Credentials --> Create Access Key --> Copy the Access Key Id & Secret Access Key.
     

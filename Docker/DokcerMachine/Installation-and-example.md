@@ -67,7 +67,7 @@
 
     aws configure
     
-        root@ip-172-31-18-41:~# aws configure
+        root@ip-172-31-18-41:~# sudo aws configure
         AWS Access Key ID [None]: ************
         AWS Secret Access Key [None]: *******
         Default region name [None]: us-east-2
@@ -75,11 +75,11 @@
 
 * Run the below command
 
-        docker-machine create --driver amazonec2 --amazonec2-region us-east-2 docker-node-1
+        sudop docker-machine create --driver amazonec2 --amazonec2-region us-east-2 docker-node-1
     
 By default ubuntu image will be installed on the instance. Give the Redhat Linux amazon AMI to create an instance with redhat os.
     
-    docker-machine create --driver amazonec2 --amazonec2-access-key ${Access Key Id} --amazonec2-secret-key ${Secret Access Key} --amazonec2-open-port 8000 --amazonec2-region us-east-2 --amazonec2-ami ami-03291866 aws-instance-name
+    sudo docker-machine create --driver amazonec2 --amazonec2-access-key ${Access Key Id} --amazonec2-secret-key ${Secret Access Key} --amazonec2-open-port 8000 --amazonec2-region us-east-2 --amazonec2-ami ami-03291866 aws-instance-name
 
 Go to EC2 instances: 
 

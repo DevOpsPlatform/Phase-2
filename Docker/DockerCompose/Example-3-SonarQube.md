@@ -1,19 +1,21 @@
 
-Refer: https://github.com/SonarSource/docker-sonarqube/blob/master/recipes.md
+###### Refer: https://github.com/SonarSource/docker-sonarqube/blob/master/recipes.md
+
+0. Launch EC2 instance with Ubuntu AMI - t2.medium
 
 1. Create any folder. 
 
-      ex: mkdir sonar
+      ex: `mkdir sonar`
 
 2. Change directory to new folder: 
 
-      ex: cd sonar
+      ex: `cd sonar`
 
 3. Create a yml file and add the below script. If you are getting the error with below script, copy the same content from docker-compose.yml file which is attahced.
 
-      vi docker-compose.yml
+      `vi docker-compose.yml`
 
-            version: "2"
+            version: "3"
             services:
               sonarqube:
                 image: sonarqube
@@ -49,8 +51,9 @@ Refer: https://github.com/SonarSource/docker-sonarqube/blob/master/recipes.md
               sonarqube_bundled-plugins:
               postgresql:
               postgresql_data:
-            
-4. Now, run the command, docker-compose up -d
+
+
+4. Now, run the command: `docker-compose up -d`
 
    At the end of the execution, you will see the log as below.
    
@@ -59,7 +62,7 @@ Refer: https://github.com/SonarSource/docker-sonarqube/blob/master/recipes.md
             Creating sonar_db_1        ... done
 
 
-5. Launch the URL: http://IP_Address:9000.
+5. Launch the URL: `http://IP_Address:9000`
 
 #### Check the postgresql database whether sonar really connected or not. Verifying whether the tables are created or not in postgresql db server.
 

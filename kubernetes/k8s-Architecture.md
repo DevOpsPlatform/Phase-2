@@ -2,6 +2,8 @@ Reference:
 
 https://kubernetes.io/docs/concepts/overview/components/
 
+https://kubernetes.io/docs/concepts/overview/components/
+
 https://www.aquasec.com/wiki/display/containers/Kubernetes+Architecture+101
 
 

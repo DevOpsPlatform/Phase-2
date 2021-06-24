@@ -37,7 +37,7 @@ Launahc an EC2 ubuntu instance. And connect to it, then install docker.
 
 ex-1:
     
-    kubectl run nginx-deployment --image=nginx --port=80
+    kubectl create deployment nginx-deployment --image=nginx
 
     kubectl expose deployment nginx-deployment --port=80 --type=NodePort
 
@@ -45,13 +45,11 @@ ex-1:
 
 ex-2:
 
-    kubectl run devops-deployment --image=venkatasykam/devopswebapp:1.0.13 --port=8080 --replicas=2
+    kubectl run devops-deployment --image=venkatasykam/devopswebapp:1.0.13 --port=8080
 
     kubectl expose deployment devops-deployment --port=8181 --target-port=8080 --type=NodePort
 
     kubectl get svc devops-deployment
-    
-  
 
 ex-3:
 

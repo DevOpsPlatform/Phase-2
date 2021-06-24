@@ -123,7 +123,7 @@ ex-5: Single command to run & expose:
 
 ex-6: Single command to run & expose: 
 
-    kubectl run jenkins-cicd --image=jenkins --port=8080 --hostport=8888
+    kubectl run jenkins-cicd --image=jenkins/jenkins:latest --port=8080 --hostport=8888
 
     curl http://172.17.0.94:8888
 
@@ -133,6 +133,12 @@ ex-7: Single command to run & expose:
 
     curl http://172.17.0.94:9999
     
+
+ex-8: Single command to run & expose: 
+
+    kubectl run jenkins-cicd --image=jenkins --port=8080 --hostport=8888
+
+    kunectl describe pod <pod-name>
     
 ---------------
 

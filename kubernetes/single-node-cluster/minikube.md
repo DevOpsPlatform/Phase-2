@@ -22,7 +22,7 @@ Launahc an EC2 ubuntu instance. And connect to it, then install docker.
 
 ### Install kubectl
 
-    curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+    curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.21.2/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
 
     source <(kubectl completion bash)
     

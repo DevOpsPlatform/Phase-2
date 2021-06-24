@@ -9,7 +9,15 @@ Launahc an EC2 ubuntu instance. And connect to it, then install docker.
 
     sudo -i
 
-    apt-get update -y &&  apt-get install -y docker.io virtualbox virtualbox-ext-pack
+    apt-get update -y &&  apt-get install -y docker.io apt-transport-https
+    
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+    
+    echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+    
+    apt-get update
+    
+    apt-get install -y kubectl conntrack
     
     
 

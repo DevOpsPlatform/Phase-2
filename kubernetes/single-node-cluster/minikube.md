@@ -144,8 +144,6 @@ ex-7: Single command to run & expose:
 
     kubectl describe node <node-name>
 
-    Kubernetes dashboard - Monitor the deployments: http://18.212.188.134:30000
-
     minikube stop
 
 

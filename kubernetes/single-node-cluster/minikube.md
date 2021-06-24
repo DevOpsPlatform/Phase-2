@@ -42,6 +42,10 @@ ex-1:
     kubectl expose deployment nginx-deployment --port=80 --type=NodePort
 
     kubectl get svc nginx-deployment
+    
+    kubectl get all
+    
+    try remove pod: kubectl delete pod <pod-name>
 
 ex-2:
 
@@ -50,6 +54,10 @@ ex-2:
     kubectl expose deployment devops-deployment --port=8181 --target-port=8080 --type=NodePort
 
     kubectl get svc devops-deployment
+    
+    kubectl get all
+    
+    try remove pod: kubectl delete pod <pod-name>
 
 ex-3:
 

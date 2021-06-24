@@ -115,36 +115,37 @@ ex-4:
 
 ex-5: Single command to run & expose: 
 
-    kubectl run nginx-deploy --image=nginx --replicas=1 --port=80 --hostport=8888
+    kubectl run nginx-deploy --image=nginx --port=80 --hostport=8888
 
     curl http://172.17.0.94:8888
 
     docker ps | grep nginx-deploy
 
-    kubectl scale --replicas=3 deployment nginx-deploy
-
 ex-6: Single command to run & expose: 
 
-    kubectl run jenkins-cicd --image=jenkins --replicas=2 --port=8080 --hostport=8888
+    kubectl run jenkins-cicd --image=jenkins --port=8080 --hostport=8888
 
     curl http://172.17.0.94:8888
 
 ex-7: Single command to run & expose: 
 
-    kubectl run sonarqube --image=sonarqube --replicas=2 --port=9000 --hostport=9999
+    kubectl run sonarqube --image=sonarqube --port=9000 --hostport=9999
 
     curl http://172.17.0.94:9999
+    
+    
+---------------
 
-kubectl get all
+    kubectl get all
 
-kubectl --namespace=kube-system get all
+    kubectl --namespace=kube-system get all
 
-kubectl get nodes
+    kubectl get nodes
 
-kubectl describe node <node-name>
+    kubectl describe node <node-name>
 
-Kubernetes dashboard - Monitor the deployments: http://18.212.188.134:30000
+    Kubernetes dashboard - Monitor the deployments: http://18.212.188.134:30000
 
-minikube stop
+    minikube stop
 
 

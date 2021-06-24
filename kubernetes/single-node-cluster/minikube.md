@@ -9,7 +9,7 @@ Launahc an EC2 ubuntu instance. And connect to it, then install docker.
 
     sudo -i
 
-    apt-get update -y &&  apt-get install -y docker.io
+    apt-get update -y &&  apt-get install -y docker.io virtualbox virtualbox-ext-pack
     
     
 

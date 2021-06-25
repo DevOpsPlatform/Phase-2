@@ -1,8 +1,5 @@
 # Running Kubernetes Locally via Minikube
 
-
-https://github.com/aws-samples/aws-workshop-for-kubernetes/blob/master/03-path-application-development/301-local-development/readme.adoc
-
 ### Install docker.
 
 Launahc an EC2 ubuntu instance. And connect to it, then install docker.
@@ -18,7 +15,11 @@ Launahc an EC2 ubuntu instance. And connect to it, then install docker.
     apt-get update
     
     apt-get install -y kubectl conntrack
-        
+    
+    kubectl version
+    
+    docker version
+      
 
 ### Install minikube
 
@@ -32,6 +33,8 @@ Launahc an EC2 ubuntu instance. And connect to it, then install docker.
     minikube start --vm-driver=none
 
     minikube status
+    
+    kubectl version
 
 ### Deploy docker images
 
@@ -45,19 +48,25 @@ ex-1:
     
     kubectl get all
     
-    try remove pod: kubectl delete pod <pod-name>
+    try remove pod: kubectl delete pod <pod-name> (observation is, immidiately a new pod will be created by replica set)
+    
+    try delete deployment and then access nginx from browser. (observation is, service will not work after we deleted the deployment)
 
 ex-2:
 
     kubectl run devops-deployment --image=venkatasykam/devopswebapp:1.0.13 --port=8080
+    
+    kubectl get all
 
-    kubectl expose deployment devops-deployment --port=8181 --target-port=8080 --type=NodePort
+    kubectl expose pod devops-deployment --port=8181 --target-port=8080 --type=NodePort
 
     kubectl get svc devops-deployment
     
     kubectl get all
     
-    try remove pod: kubectl delete pod <pod-name>
+    ex: http://34.234.91.119:30764/DevOpsWebApp-1.0.13/
+    
+    try remove pod: kubectl delete pod <pod-name> (observation is, pod will not be created automatically as this pod not controlled by any replica set or deployment)
 
 ex-3:
 

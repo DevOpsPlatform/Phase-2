@@ -16,7 +16,7 @@ spec:
        volumes:
        - name: jenkins-vol
          hostPath:
-            path: /root/jenkins
+            path: /root/jenkins #chown -R 1000:1000 /root/jenkins
             type: Directory
        containers:
        - name: jenkins

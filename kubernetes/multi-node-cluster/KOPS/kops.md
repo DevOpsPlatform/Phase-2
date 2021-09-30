@@ -140,5 +140,13 @@ Step-4: Configure the AWS credentials: Run the command and enter the access key 
 
 #### Step-13: Delete s3 bucket (If everything deleted, then only remove this S3 bucket)
 
-	aws s3 rb s3://${bucket-name} --force 
+	Command-1: 
+		aws s3 rm s3://${bucket-name} --recursive
+		or
+		aws s3 rm s3://v2devops-kops-state-store --recursive
+
+	Command-2:
+		aws s3 rb s3://${bucket-name} --force
+		or
+		aws s3 rb s3://v2devops-kops-state-store --force 
 	

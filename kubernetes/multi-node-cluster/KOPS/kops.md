@@ -1,6 +1,6 @@
 
 ```diff
-- AFTER THE PRACTICE, DO NOT FORGET TO EXECUTE STEP-12 AND STEP-13
+- AFTER THE PRACTICE, DO NOT FORGET TO EXECUTE STEP-12, 13, 14
 ```
 
 * Referecne: https://medium.com/containermind/how-to-create-a-kubernetes-cluster-on-aws-in-few-minutes-89dda10354f4
@@ -150,3 +150,6 @@ Step-4: Configure the AWS credentials: Run the command and enter the access key 
 		or
 		aws s3 rb s3://v2devops-kops-state-store --force 
 	
+
+#### Step-14: Go IAM and delete the user which is created in Step-1
+

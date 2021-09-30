@@ -1,3 +1,8 @@
+
+```diff
+- AFTER THE PRACTICE, DO NOT FORGET TO EXECUTE STEP-12 AND STEP-13
+```
+
 * Referecne: https://medium.com/containermind/how-to-create-a-kubernetes-cluster-on-aws-in-few-minutes-89dda10354f4
 
 * Check the logs if you have any issues: https://github.com/DevOpsBasicSetup/Phase-2/blob/master/kubernetes/KOPS/kops-logs.txt

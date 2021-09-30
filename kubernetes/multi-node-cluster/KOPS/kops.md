@@ -132,3 +132,8 @@ Step-4: Configure the AWS credentials: Run the command and enter the access key 
 	kops delete cluster --name=${KOPS_CLUSTER_NAME} --state=${KOPS_STATE_STORE} --yes
 	
 ![image](https://user-images.githubusercontent.com/24622526/45142204-737c9780-b1a7-11e8-9041-2fdcccdaa19c.png)
+
+#### Step-13: Delete s3 bucket
+
+	aws s3 rb s3://${bucket-name} --force 
+	
